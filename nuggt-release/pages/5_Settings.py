@@ -31,8 +31,8 @@ with col2:
     st.caption("*Required for all apps; get it [here](https://support.google.com/googleapi/answer/6158862?hl=en).*")
 
     google_cse_key = st.session_state.google_cse_api_key if "google_cse_api_key" in st.session_state else "" 
-    google_cse_api_key = st.text_input("Google CSE Key", value=google_cse_key, type="password")
-    st.caption("*Required for all apps; get it [here](https://developers.google.com/custom-search/v1/introduction).*")
+    google_cse_api_key = st.text_input("Google Search Engine ID", value=google_cse_key, type="password")
+    st.caption("*Required for all apps; get it [here](https://programmablesearchengine.google.com/controlpanel/all).*")
 
 
 if st.button("Save"):
