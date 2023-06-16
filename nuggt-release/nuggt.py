@@ -10,8 +10,6 @@ from helper.sidebar_functions import sidebar_logo
 from dotenv import load_dotenv
 import toml
 import tool
-import openai
-
 
 form_url = os.getenv("FORM_URL")
 firstFieldKey = os.getenv("FIRST_FIELD_KEY")
@@ -52,6 +50,7 @@ count = 0
 global tmp_path
 
 def save_to_sheets(userInput, outputFormat, feedback, logs):
+
     url = form_url
     data = {
         firstFieldKey: userInput,
@@ -68,7 +67,7 @@ def save_to_sheets(userInput, outputFormat, feedback, logs):
         print(thirdFieldKey)
         print(fourthFieldKey)
         print(data)
-        requests.post(url, data = data)
+        requests.post(url,data=data)
     except:
         print("Error!")
 
