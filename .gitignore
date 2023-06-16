@@ -1,4 +1,5 @@
 nuggt-release/.streamlit/secrets.toml
 nuggt-release/.env
 .env
-nuggt-release/__pycache__
+nuggt-release/__pycache__/*.pyc
+Nova_Instructions.md
