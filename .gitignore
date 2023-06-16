@@ -1,4 +1,9 @@
-nuggt-release/.streamlit/secrets.toml
-nuggt-release/.env
-nuggt-release/__pycache__/*
-./.env
+# Ignore Streamlit secrets file
+.streamlit/secrets.toml
+
+# Ignore .env file in the project root
+.env
+
+# Ignore Python bytecode files
+__pycache__/
+*.pyc
