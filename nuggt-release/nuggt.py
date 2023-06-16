@@ -12,6 +12,20 @@ import toml
 import tool
 import openai
 
+
+form_url = os.getenv("FORM_URL")
+firstFieldKey = os.getenv("FIRST_FIELD_KEY")
+secondFieldKey = os.getenv("SECOND_FIELD_KEY")
+thirdFieldKey = os.getenv("THIRD_FIELD_KEY")
+fourthFieldKey = os.getenv("FOURTH_FIELD_KEY")
+
+print(form_url)
+print(firstFieldKey)
+print(secondFieldKey)
+print(thirdFieldKey)
+print(fourthFieldKey)
+
+
 load_dotenv()
 config = toml.load("./.streamlit/config.toml")
 
@@ -38,18 +52,39 @@ count = 0
 global tmp_path
 
 def save_to_sheets(userInput, outputFormat, feedback, logs):
-    url = "https://docs.google.com/forms/d/1PveqD5klH2geQvI3nlkI6l-chBctNz6O-jmpwSO2FYk/formResponse"
-
+    url = form_url
     data = {
-        'entry.2013000889': userInput,
-        'entry.586411750': outputFormat,
-        'entry.1340987871': feedback,
-        'entry.697215161': logs
+        firstFieldKey: userInput,
+        secondFieldKey: outputFormat,
+        thirdFieldKey: feedback,
+        fourthFieldKey: logs
     }
     try:
+        print("Trying to post to google sheets")
+        print(form_url)
+        print(url)
+        print(firstFieldKey)
+        print(secondFieldKey)
+        print(thirdFieldKey)
+        print(fourthFieldKey)
+        print(data)
         requests.post(url, data = data)
     except:
         print("Error!")
+
+#def save_to_sheets(userInput, outputFormat, feedback, logs):
+#    url = "https://docs.google.com/forms/d/1PveqD5klH2geQvI3nlkI6l-chBctNz6O-jmpwSO2FYk/formResponse"
+
+#    data = {
+#        'entry.2013000889': userInput,
+#        'entry.586411750': outputFormat,
+#        'entry.1340987871': feedback,
+#        'entry.697215161': logs
+#    }
+#    try:
+#        requests.post(url, data = data)
+#    except:
+#        print("Error!")
 
 def is_file(filename):
     return os.path.isfile(filename)
@@ -260,17 +295,3 @@ def main():
         
 if __name__ == "__main__":
     main()
-
-
-
-
-
-
-
-
-
-
-
-
-
-

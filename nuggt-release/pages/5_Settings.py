@@ -1,3 +1,4 @@
+#Settings.py
 from nuggt import *
 from helper.sidebar_functions import sidebar_logo
 import os
@@ -11,7 +12,7 @@ col1, col2 = st.columns(2)
 
 with col1:
     model_name = st.session_state.model_name if "model_name" in st.session_state else "" 
-    language_model_name = st.selectbox("Model Name", ("gpt-3.5-turbo", "gpt-4"))
+    language_model_name = st.selectbox("Model Name", ("gpt-3.5-turbo","gpt-3.5-turbo-16k", "gpt-4"))
 
     openai_key = st.session_state.openai_api_key if "openai_api_key" in st.session_state else "" 
     openai_api_key = st.text_input("OpenAI API Key", value=openai_key, type="password")
